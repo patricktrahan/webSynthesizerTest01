@@ -141,7 +141,7 @@ function keyboard(event)
 	circleMod();
 }
 
-//darken circle color
+//modify circle color
 function circleMod()
 {
 	document.getElementById('circle').style.transition = '0.1s';

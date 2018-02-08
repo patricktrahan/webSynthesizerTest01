@@ -1,6 +1,6 @@
 # webSynthesizerTest01
 
-<p>web synthesizer that allows for keyboard input that acts as a piano</p>
+<p>web synthesizer that allows for keyboard input that acts as a piano using tone.js </p>
 
 <h2>instructions:</h2>
 <p> keys a,s,d,f,g,h,j,k correspond to natural notes C4-C5. </p>

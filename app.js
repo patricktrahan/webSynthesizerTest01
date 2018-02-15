@@ -3,85 +3,34 @@
 //effects
 var verb = new Tone.Freeverb(
 	{
-		'roomSize' : 0.8,
+		'roomSize' : 0.2,
 		'dampening' :2000,
 		'wet' : 0.2
 	}).toMaster();
 
 var delay = new Tone.PingPongDelay(
 	{
-		'wet' : 0.5,
-		'feedback' : 0.5,
-		'delayTime' : 0.4
+		'wet' : 0.2,
+		'feedback' : 0.1,
+		'delayTime' : 0.2
 	}).connect(verb);
 
 // synth oscillator
-var synth = new Tone.Synth(
+var synth = new Tone.PolySynth(
 	{
-		'oscillator' : 
-			{
-				'type' : 'sine'
-			}
+		'voice' : Tone.FMSynth
 	}).connect(delay);
 
 // init octave at 
 var octave = 4;
 
-
-// Random Note Function
-function randomNote() 
-{
-	//stores a random integer from 0-10
-	var randomNote = Math.floor(Math.random() *11);
-	console.log(randomNote);
-
-	//plays a random note based on the stored integer
-	switch(randomNote)
-	{
-		case 0:
-			synth.triggerAttackRelease('A4','18n');
-			break;
-		case 1:
-			synth.triggerAttackRelease('B4','16n');
-			break;
-		case 2:
-			synth.triggerAttackRelease('C4','16n');
-			break;
-		case 3:
-			synth.triggerAttackRelease('D4','16n');
-			break;
-		case 4:
-			synth.triggerAttackRelease('E4','16n');
-			break;
-		case 5:
-			synth.triggerAttackRelease('F4','16n');
-			break;
-		case 6:
-			synth.triggerAttackRelease('G4','16n');
-			break;
-		case 7:
-			synth.triggerAttackRelease('A5','16n');
-			break;
-		case 8:
-			synth.triggerAttackRelease('B5','16n');
-			break;
-		case 9:
-			synth.triggerAttackRelease('C5','16n');
-			break;
-		case 10:
-			synth.triggerAttackRelease('D5','16n');
-			break;
-		default:
-			synth.triggerAttackRelease('A4','16n');
-	}
-}
-
 // Simulates a piano keyboard lowercase letters only for now
 function keyboard(event)
 {	
 	//stores the keyCode pressed on the keyboard
-	var keyPress = event.which;
+	var keyPress = event.which || keyCode;
 	console.log('keyPress ' + keyPress);
+
 	//switches octave up or down based on keypress z(octave up) or x(octavedown)
 	if(keyPress == 122)
 	{
@@ -92,11 +41,11 @@ function keyboard(event)
 		octave = octave + 1;
 	}
 	console.log('octave ' + octave);
-
 	//notes played based on  keypress
+
 	switch(keyPress)
 	{
-		case 97: //a	
+		case 97: //a
 			synth.triggerAttackRelease('C' + octave,'16n');
 			break;
 		case 119: //w
@@ -144,17 +93,13 @@ function keyboard(event)
 //modify circle color
 function circleMod()
 {
-	document.getElementById('circle').style.transition = '0.1s';
-	document.getElementById('circle').style.backgroundColor = '#5499c7';
-	document.getElementById('circle').style.filter = 'blur(2px)';
-
+	document.getElementById('body').style.backgroundColor = '#5499c7';
 }
 
 //init circle color
 function initCircle()
 {
-	document.getElementById('circle').style.transition = '0.1s';
-	document.getElementById('circle').style.backgroundColor = '#154360';
-	document.getElementById('circle').style.filter = 'blur(0.5px)';
-
+	document.getElementById('body').style.transition = '0.2s';
+	document.getElementById('body').style.backgroundColor = 'black';
 }
+

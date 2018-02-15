@@ -1,5 +1,7 @@
 # webSynthesizerTest01
 
+https://patricktrahan.github.io/webSynthesizerTest01/
+
 <p>simple web synthesizer that allows for keyboard input that acts as a piano using tone.js</p>
 
 <h2>instructions:</h2>

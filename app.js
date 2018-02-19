@@ -31,7 +31,7 @@ function keyboard(event)
 	var keyPress = event.which || keyCode;
 	console.log('keyPress ' + keyPress);
 
-	//switches octave up or down based on keypress z(octave up) or x(octavedown)
+	//shifts the keyboard an octave up or down based on keypress z(octave down) or x(octave up)
 	if(keyPress == 122)
 	{
 		octave = octave - 1;

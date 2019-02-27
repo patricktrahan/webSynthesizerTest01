@@ -4,7 +4,7 @@ let noiseMax = 5;
 let phase = 0;
 let adjust;
 function setup() {
-	createCanvas(600, 600);
+	createCanvas(500, 500);
 }
 
 function draw() {

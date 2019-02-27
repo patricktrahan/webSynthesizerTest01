@@ -19,7 +19,7 @@ var delay = new Tone.PingPongDelay(
 // synth oscillator
 var synth = new Tone.PolySynth(
 	{
-		'voice' : Tone.FMSynth
+		'voice' : Tone.Synth
 	}).connect(delay);
 
 // init octave at 

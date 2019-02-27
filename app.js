@@ -1,6 +1,6 @@
 // Synth Properties====================================
 
-//effects
+// reverb settings
 var verb = new Tone.Freeverb(
 	{
 		'roomSize' : 0.2,
@@ -8,6 +8,7 @@ var verb = new Tone.Freeverb(
 		'wet' : 0.2
 	}).toMaster();
 
+// delay settings
 var delay = new Tone.PingPongDelay(
 	{
 		'wet' : 0.2,
@@ -41,6 +42,7 @@ function keyboard(event)
 		octave = octave + 1;
 	}
 	console.log('octave ' + octave);
+	
 	//notes played based on  keypress
 
 	switch(keyPress)
@@ -87,19 +89,19 @@ function keyboard(event)
 		default:
 			return false;
 	}
-	circleMod();
+	//circleMod();
 }
 
-//modify circle color
+//modify color
 function circleMod()
 {
 	document.getElementById('body').style.backgroundColor = '#5499c7';
 }
 
-//init circle color
+//init color back to white
 function initCircle()
 {
 	document.getElementById('body').style.transition = '0.2s';
-	document.getElementById('body').style.backgroundColor = 'black';
+	document.getElementById('body').style.backgroundColor = 'white';
 }
 

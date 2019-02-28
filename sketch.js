@@ -7,7 +7,7 @@ let phase = 0;
 var osc, fft;
 
 function setup() {
-	createCanvas(500, 500);
+	createCanvas(windowWidth, windowHeight);
 
 	osc = new p5.TriOsc(); // set frequency and type
   	osc.amp(.5);
@@ -50,4 +50,9 @@ function draw() {
 
   	// change the amount of noise based on mouse position
   	noiseMaxY = map(mouseY, 0, height, 100, 5);
+}
+
+function windowResized() {
+
+	resizeCanvas(windowWidth,windowHeight);
 }

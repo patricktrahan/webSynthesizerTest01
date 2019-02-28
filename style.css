@@ -1,7 +1,13 @@
+html
+{
+	overflow: hidden;
+}
+
 body
 {
   background-color: white;
   overflow: hidden;
+  position: relative;
 }
 
 .center 

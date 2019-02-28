@@ -1,13 +1,23 @@
 //Polar Perlin Noise Loops
 
-let noiseMax = 5;
+let noiseMaxX = 5;
+let noiseMaxY = 5;
 let phase = 0;
-let adjust;
+
+var osc, fft;
+
 function setup() {
 	createCanvas(500, 500);
+
+	osc = new p5.TriOsc(); // set frequency and type
+  	osc.amp(.5);
+
+  	fft = new p5.FFT();
+  	osc.start();
 }
 
 function draw() {
+
 	background(0);
 	translate(width/2, height/2);
 	stroke(255);
@@ -16,8 +26,8 @@ function draw() {
 	beginShape();
 	
 	for (let a = -122 ; a < PI; a+=0.2) {
-		let xoff = map(sin(a-phase*2),-1,1,0,noiseMax);
-		let yoff = map(sin(a+phase/8),-1,1,0,noiseMax);
+		let xoff = map(sin(a-phase*2),-1,1,0,noiseMaxX);
+		let yoff = map(sin(a+phase/8),-1,1,0,noiseMaxY);
 		let r = map(noise(xoff, yoff),0.1,1.5,-200,200);
 		let x = r * sin(a);
 		let y = r * cos(a);	
@@ -26,66 +36,18 @@ function draw() {
 	endShape();
 
 	phase += 0.01;
-}
 
-function keyPressed() {
-	if (keyCode === 65) {
-		noiseMax = 10;
-	} 
+	// change oscillator frequency based on mouseX
+  	var freq = map(mouseX, 0, width, 40, 880);
+  	osc.freq(freq);
 
-	if (keyCode === 87) {
-		noiseMax = 15;
-	}
+  	//change oscillator amplitude based on mouseY
+  	var amp = map(mouseY, 0, height, 1, .01);
+  	osc.amp(amp);
 
-	if (keyCode === 83) {
-		noiseMax = 20;
-	}
+  	// change the amount of noise based on mouse position
+  	noiseMaxX = map(mouseX, 0, width, 5, 100);
 
-	if (keyCode === 69) {
-		noiseMax = 25;
-	}
-
-	if (keyCode === 68) {
-		noiseMax = 30;
-	}
-
-	if (keyCode === 70) {
-		noiseMax = 40;
-	}
-
-	if (keyCode === 84) {
-		noiseMax = 45;
-	}
-
-	if (keyCode === 71) {
-		noiseMax = 50;
-	}
-
-	if (keyCode === 89) {
-		noiseMax = 55;
-	}
-
-	if (keyCode === 72) {
-		noiseMax = 60;
-	}
-
-	if (keyCode === 85) {
-		noiseMax = 65;
-	}
-
-	if (keyCode === 74) {
-		noiseMax = 70;
-	}
-
-	if (keyCode === 75) {
-		noiseMax = 80;
-	}
-	
-	return false;
-}
-
-function keyReleased() {
-	noiseMax = 5;
-
-	return false;
+  	// change the amount of noise based on mouse position
+  	noiseMaxY = map(mouseY, 0, height, 100, 5);
 }

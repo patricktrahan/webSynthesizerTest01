@@ -1,7 +1,7 @@
 // Synth Properties====================================
 
 // reverb settings
-var verb = new Tone.Freeverb(
+/*var verb = new Tone.Freeverb(
 	{
 		'roomSize' : 0.2,
 		'dampening' :2000,
@@ -14,13 +14,14 @@ var delay = new Tone.PingPongDelay(
 		'wet' : 0.2,
 		'feedback' : 0.1,
 		'delayTime' : 0.2
-	}).connect(verb);
+	}).connect(verb);*/
+
 
 // synth oscillator
-var synth = new Tone.PolySynth(
-	{
-		'voice' : Tone.Synth
-	}).connect(delay);
+var synth = new Tone.Synth().toMaster();
+	//{
+//		'voice' : Tone.Synth
+//	}).connect(delay);
 
 // init octave at 
 var octave = 4;

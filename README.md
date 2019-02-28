@@ -2,4 +2,9 @@
 
 https://patricktrahan.github.io/webSynthesizerTest01/
 
-I'm currently experimenting with web based visual/sound that allows the user to interact with it. It's in a very early stage right now and is an ongoing project. This is based in JavaScript using the p5.js and p5.sound.js library.
+<p>simple web synthesizer that allows for keyboard input that acts as a piano using tone.js</p>
+
+<h2>instructions:</h2>
+<p> keys a,s,d,f,g,h,j,k correspond to natural notes C4-C5. </p>
+<p> keys w,e,t,y,u correspond to  sharp notes C#-A#. </p>
+<p> z shifts the keyboard an octave down and x shifts the keyboard an octave up. </p>

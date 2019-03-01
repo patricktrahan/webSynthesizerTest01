@@ -30,3 +30,7 @@ $("body").hammer().on('drag swipe', function(e){
         e.gesture.preventDefault();
     }
 });
+
+$("body").hammer().on('doubletap rotate pinch', function(e){
+    e.gesture.preventDefault();
+});

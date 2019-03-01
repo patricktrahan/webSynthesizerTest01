@@ -1,12 +1,14 @@
 html
 {
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
 body
 {
   background-color: white;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
   position: relative;
 }
 
